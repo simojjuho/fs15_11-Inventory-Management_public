@@ -1,4 +1,4 @@
-namespace Inventory;
+namespace src.Inventory.Inventory;
 
 public class Item
 {
@@ -23,7 +23,13 @@ public class Item
             }
         }
     }
-
+    public string Barcode
+    {
+        get
+        {
+            return _barcode;
+        }
+    }
     public int Quantity
     {
         get
@@ -58,5 +64,10 @@ public class Item
     public void DecreaseQuantity(int newAmount)
     {
         this.Quantity = this.Quantity - newAmount;
+    }
+
+    public override string ToString()
+    {
+        return $"Item: {this.Barcode}: {this.Name} Amount: {this.Quantity}";
     }
 }
