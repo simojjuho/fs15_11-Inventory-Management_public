@@ -46,6 +46,14 @@ namespace Program
             {
                 Console.WriteLine(ex.Message);
             }
+            try
+            {
+                inventory.AddItem(new Item("3456", "Jack Nicholson doll"), 7);
+            }
+            catch (System.Exception ex)
+            {
+                 Console.WriteLine(ex.Message);
+            }
             printer.PrintInventory(inventory);
         }
     }

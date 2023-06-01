@@ -32,8 +32,15 @@ public class Inventory
     public void AddItem(Item item, int quantity) 
     {
         if(!_items.Contains(item) && _items.Count < this.MaxCapacity)
-        {
-            _items.Add(item);
+        {  
+            if(_items.Exists(listItem => listItem.Barcode == item.Barcode))
+            {
+                throw new Exception($"Item with barcode {item.Barcode} exists already!");
+            }
+            else
+            {
+                _items.Add(item);
+            }
         }
                 else
         {
